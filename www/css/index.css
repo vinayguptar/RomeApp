@@ -1,115 +1,178 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-* {
-    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
-}
-
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
-    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
-    background-image:-webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0, #A7A7A7),
-        color-stop(0.51, #E4E4E4)
-    );
+    background-color:#BBBBBB;
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:12px;
+    font-size:9px;
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
-    width:100%;
 }
 
-/* Portrait layout (default) */
-.app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
-    position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
-                                   /* offset horizontal: half of text area width */
+.page {
+	display:none;
+	padding:0px 0.5em;
 }
 
-/* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
-    }
+#overzicht {
+	display:block;
 }
 
-h1 {
-    font-size:24px;
-    font-weight:normal;
-    margin:0px;
-    overflow:visible;
-    padding:0px;
-    text-align:center;
+#sub-head {
+	padding:0.5em;
+	background-color:#666666;
 }
 
-.event {
-    border-radius:4px;
-    -webkit-border-radius:4px;
-    color:#FFFFFF;
-    font-size:12px;
-    margin:0px 30px;
-    padding:2px 0px;
+#head {
+	background-image: linear-gradient(to bottom, #343434, #444444);
+	background-image:-webkit-linear-gradient(top, #343434 0%, #444444 51%);
+    background-image:-ms-linear-gradient(top, #343434 0%, #444444 51%);
+    background-image:-webkit-gradient(
+    	linear,
+    	left top,
+    	left bottom,
+    	color-stop(0, #343434),
+    	color-stop(0.51, #444444)
+    );
+	padding:1em;
+	padding-bottom:0px;
 }
 
-.event.listening {
-    background-color:#333333;
-    display:block;
+.tab {
+	display:inline-block;
+	background-color: #242424;
+	border-top:1px solid black;
+	border-left:1px solid black;
+	border-right:1px solid black;
+	color:white;
+	padding:1em 0px;
+	border-radius: 4px 4px 0px 0px;
+	width:25%;
+	text-align:center;
 }
 
-.event.received {
-    background-color:#4B946A;
-    display:none;
+.tab.selected {
+	background-color:#666666;
+	color:black;
+	font-weight:bold;
 }
 
-@keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
+#tab-kaart {
+	width:17%;
+	float:right;
 }
- 
-@-webkit-keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
+
+#overzicht p {
+	border-bottom:1px solid black;
+	padding-bottom:1em;
 }
- 
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
+
+.activity {
+	border-bottom:1px solid black;
+	padding:0 1em;
+	margin:0 1em;
+}
+
+.child {
+	border-bottom:1px solid black;
+	padding:0 1em;
+	margin:0 1em;
+	display:none;
+}
+
+.child p {
+	position:relative;
+	left:2em;
+}
+
+.activity.expanded {
+	font-weight:bold;
+}
+
+.activity p {
+	display:inline-block;
+}
+
+.expand {
+	float:right;
+}
+
+.info {
+	padding-bottom:1em;
+	border-bottom:1px solid black;
+}
+
+.plaatje {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	height:15em;
+	width:auto;
+}
+
+.big-img {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:90%;
+	position:relative;
+	top:3em;
+}
+
+@media screen and (min-width:320px) {
+	body {
+		font-size:12px;
+	}
+	
+	.tab {
+		border-radius: 5px 5px 0px 0px;
+	}
+}
+
+@media screen and (min-width:480px) {
+	body {
+		font-size:18px;
+	}
+	
+	.tab {
+		border-radius: 8px 8px 0px 0px;
+	}
+}
+
+@media screen and (min-width:540px) {
+	body {
+		font-size: 20px;
+	}
+}
+
+@media screen and (min-width:695px) {
+	body {
+		font-size:26px;
+	}
+
+	.tab {
+		border-radius: 11px 11px 0px 0px;
+	}
+}
+
+@media screen and (min-width:855px) {
+	body {
+		font-size:32px;
+	}
+
+	.tab {
+		border-radius: 13px 13px 0px 0px;
+	}
+}
+
+@media screen and (min-width:1015px) {
+	body {
+		font-size:38px;
+	}
+		
+	.tab {
+		border-radius: 16px 16px 0px 0px;
+	}
 }
